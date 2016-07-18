@@ -1,0 +1,8 @@
+{
+    "debug": false,
+    "nested": {
+        "c": {
+            "true": false
+        }
+    }
+}

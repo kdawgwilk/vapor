@@ -1,294 +1,160 @@
-![Vapor](https://cloud.githubusercontent.com/assets/1342803/12457900/1825c70c-bf75-11e5-9080-989345fa43e2.png)
+[![Vapor](https://cloud.githubusercontent.com/assets/1342803/15592871/46decfda-2375-11e6-9494-a9bf4e6aaebf.png)](http://slack.qutheory.io)
 
 # Vapor
 
-A Laravel/Lumen Inspired Web Framework for Swift that works on iOS, OS X, and Ubuntu.
+A Web Framework for Swift that works on iOS, OS X, and Ubuntu.
 
-- [x] Insanely fast
-- [x] Beautiful syntax
-- [x] Type safe
+- [x] Pure Swift
+- [x] Modular
+- [x] Beautifully expressive
 
-## Badges
+![Swift](https://camo.githubusercontent.com/0727f3687a1e263cac101c5387df41048641339c/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f53776966742d332e302d6f72616e67652e7376673f7374796c653d666c6174)
+[![Build Status](https://api.travis-ci.org/qutheory/vapor.svg?branch=master)](https://travis-ci.org/qutheory/vapor)
+[![Slack Status](http://slack.qutheory.io/badge.svg)](http://slack.qutheory.io)
+[![Twitter Follow](https://img.shields.io/twitter/follow/shields_io.svg?style=social&label=Follow&maxAge=2592000)](https://twitter.com/qutheory)
+[![codebeat badge](https://codebeat.co/badges/3334c72c-c6e6-4061-a86b-f077b5250252)](https://codebeat.co/projects/github-com-qutheory-vapor)
+[![PRs Welcome](https://img.shields.io/badge/prs-welcome-brightgreen.svg)](http://makeapullrequest.com)
+[![OpenCollective](https://opencollective.com/vapor/backers/badge.svg)](#backers)
+[![OpenCollective](https://opencollective.com/vapor/sponsors/badge.svg)](#sponsors)
 
-[![Build Status](https://img.shields.io/travis/tannernelson/vapor.svg?style=flat-square)](https://travis-ci.org/tannernelson/vapor)
-[![Issue Stats](http://issuestats.com/github/tannernelson/vapor/badge/pr?style=flat-square)](http://issuestats.com/github/tannernelson/vapor)
+Vapor is the first true web framework for Swift. It provides a beautifully expressive and easy to use foundation for your next website or API.
 
-## Getting Started
+This repository is the framework's source code. To view some sample projects, check out our list [here](/Documents/PROJECTS.md).
 
-Clone the [Example](https://github.com/tannernelson/vapor-example) project to start making your application or check out the [live demo](http://vapor.tanner.xyz:8080) running on Ubuntu. This repository is for the framework module. 
+## 🌏 Current Environment
 
-You must have Swift 2.2 or later installed. You can learn more about Swift 2.2 at [Swift.org](http://swift.org)
+| Vapor |     Xcode    |    Swift    |
+|:-----:|:------------:|:-----------:|
+|0.14.x |8.0 Beta **2**|3.0-PREVIEW-2|
 
-### Work in Progress
+You can run the following script to verify your environment is correct.
 
-This is a work in progress, so don't rely on this for anything important. And pull requests are welcome!
-
-## Server
-
-Starting the server takes two lines.
-
-`main.swift`
-```swift
-import Vapor
-
-let server = Server()
-server.run()
+```sh
+curl -sL check.qutheory.io | bash
 ```
 
-You can also choose which port the server runs on.
+## 🦄 Deploy
 
-```swift
-server.run(port: 8080)
-```
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/qutheory/vapor-example/tree/master)
 
-If you are having trouble connecting, make sure your ports are open. Check out `apt-get ufw` for simple port management.
+## 📖 Documentation
 
-## Routing
+Visit the [Documentation](http://docs.qutheory.io) for extensive information on getting setup, using, and deploying Vapor.
 
-Routing in Vapor is simple and very similar to Laravel.
+## 🚀 Contributing
 
-`main.swift`
-```swift
-Route.get("welcome") { request in
-	return "Hello"
-}
+All developers should feel welcome and encouraged to contribute to Vapor, see our [getting started](/Documents/CONTRIBUTING.md) document here to get involved.
 
-//...start server
-```
+To contribute code, see our [getting started](/Documents/CONTRIBUTING.md) guide for how to do so.
 
-Here we will respond to all requests to `http://example.com/welcome` with the string `"Hello"`. 
+To contribute a **feature or idea** to Vapor, submit an issue and fill in the template. If the request is approved, you or one of the members of the community can start working on it.
 
-### JSON
+If you find a **bug**, please submit a pull request with a failing test case displaying the bug or create an issue.
 
-Responding with JSON is easy.
+If you find a **security vulnerability**, please contact [tanner@qutheory.io](tanner@qutheory.io) as soon as possible. We take these matters seriously.
 
-```swift
-Route.get("version") { request in
-	return ["version": "1.0"]
-}
-```
+## 💙 Code of Conduct
 
-This responds to all requests to `http://example.com/version` with the JSON dictionary `{"version": "1.0"}` and `Content-Type: application/json`.
+Our goal is to create a safe and empowering environment for anyone who decides to use or contribute to Vapor. Please help us make the community a better place by abiding to this [Code of Conduct](/Documents/CODE_OF_CONDUCT.md) during your interactions surrounding this project.
 
-### Views
+## ⭐ Projects
 
-You can also respond with HTML pages.
+Vapor has [several projects](/Documents/PROJECTS.md) that are live now in the cloud. Most are also open source, so check them out for great examples.
 
-```swift
-Route.get("/") { request in
-	return View(path: "index.html")
-}
-```
+## 🏫 Tutorials
 
-Or Mustache templates (coming soon).
+The awesome Vapor community is always adding new tutorials and articles out there, we do our best to keep a record of relevant tutorials [here](/Documents/TUTORIALS.md).
 
-`index.mustache`
+## 💡 Evolution
 
-```mustache
-<html>
-	<h1>{{ message }}</h1>
-</html>
-```
+Contributing code isn't the only way to participate in Vapor. Taking a page out of the Swift team's playbook, we want _you_ to participate in the evolution of the Vapor framework. File a GitHub issue on this repository to start a discussion or suggest an awesome idea.
 
-```swift
-Route.get("/") { request in
-	return View(path: "index.mustache", ["message": "Hello"])
-}
-```
+## 💧 Community
 
-Just put the View file in the `Resources` folder at the root of your project and it will be served.
+We pride ourselves on providing a diverse and welcoming community. Join your fellow Vapor developers in [our slack](http://slack.qutheory.io) and take part in the conversation.
 
-### Response
+## 🔧 Compatibility
 
-A manual response can be returned if you want to set something like `cookies`.
+Vapor has been tested on OS X 10.11, Ubuntu 14.04, and Ubuntu 15.10.
 
-```swift
-Route.get("cookie") { request in
-	let response = Response(status: .OK, text: "Cookie was set")
-	response.cookies["test"] = "123"
-	return response
-}
-```
+Our homepage [http://qutheory.io](http://qutheory.io) is currently running using Vapor on DigitalOcean.
 
-The Status enum above (`.OK`) can be one of the following.
+## ⚠️ State of Vapor
 
-```swift
-public enum Status {
-    case OK, Created, Accepted
-    case MovedPermanently
-    case BadRequest, Unauthorized, Forbidden, NotFound
-    case ServerError
-    case Unknown
-    case Custom(Int)
-}
-```
+Vapor is in a generally stable state with [several projects](/Documents/PROJECTS.md) currently active and hosted in the cloud. With that said, we are still considered _under development_ at least until the official Swift 3 release, and future API changes should be anticipated.
 
-Or something custom.
+## Backers
 
-```swift
-let status: Status = .Custom(420) //https://dev.twitter.com/overview/api/response-codes
-```
+Support us with a monthly donation and help us continue our activities. [[Become a backer](https://opencollective.com/vapor#backer)]
 
-### Public
+<a href="https://opencollective.com/vapor/backer/0/website" target="_blank"><img src="https://opencollective.com/vapor/backer/0/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/backer/1/website" target="_blank"><img src="https://opencollective.com/vapor/backer/1/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/backer/2/website" target="_blank"><img src="https://opencollective.com/vapor/backer/2/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/backer/3/website" target="_blank"><img src="https://opencollective.com/vapor/backer/3/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/backer/4/website" target="_blank"><img src="https://opencollective.com/vapor/backer/4/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/backer/5/website" target="_blank"><img src="https://opencollective.com/vapor/backer/5/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/backer/6/website" target="_blank"><img src="https://opencollective.com/vapor/backer/6/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/backer/7/website" target="_blank"><img src="https://opencollective.com/vapor/backer/7/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/backer/8/website" target="_blank"><img src="https://opencollective.com/vapor/backer/8/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/backer/9/website" target="_blank"><img src="https://opencollective.com/vapor/backer/9/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/backer/10/website" target="_blank"><img src="https://opencollective.com/vapor/backer/10/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/backer/11/website" target="_blank"><img src="https://opencollective.com/vapor/backer/11/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/backer/12/website" target="_blank"><img src="https://opencollective.com/vapor/backer/12/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/backer/13/website" target="_blank"><img src="https://opencollective.com/vapor/backer/13/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/backer/14/website" target="_blank"><img src="https://opencollective.com/vapor/backer/14/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/backer/15/website" target="_blank"><img src="https://opencollective.com/vapor/backer/15/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/backer/16/website" target="_blank"><img src="https://opencollective.com/vapor/backer/16/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/backer/17/website" target="_blank"><img src="https://opencollective.com/vapor/backer/17/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/backer/18/website" target="_blank"><img src="https://opencollective.com/vapor/backer/18/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/backer/19/website" target="_blank"><img src="https://opencollective.com/vapor/backer/19/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/backer/20/website" target="_blank"><img src="https://opencollective.com/vapor/backer/20/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/backer/21/website" target="_blank"><img src="https://opencollective.com/vapor/backer/21/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/backer/22/website" target="_blank"><img src="https://opencollective.com/vapor/backer/22/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/backer/23/website" target="_blank"><img src="https://opencollective.com/vapor/backer/23/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/backer/24/website" target="_blank"><img src="https://opencollective.com/vapor/backer/24/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/backer/25/website" target="_blank"><img src="https://opencollective.com/vapor/backer/25/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/backer/26/website" target="_blank"><img src="https://opencollective.com/vapor/backer/26/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/backer/27/website" target="_blank"><img src="https://opencollective.com/vapor/backer/27/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/backer/28/website" target="_blank"><img src="https://opencollective.com/vapor/backer/28/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/backer/29/website" target="_blank"><img src="https://opencollective.com/vapor/backer/29/avatar.svg"></a>
 
-All files put in the `Public` folder at the root of your project will be available at the root of your domain. This is a great place to put your assets (`.css`, `.js`, `.png`, etc).
 
-## Request
+## Sponsors
 
-Every route call gets passed a `Request` object. This can be used to grab query and path parameters.
+Become a sponsor and get your logo on our README on Github with a link to your site. [[Become a sponsor](https://opencollective.com/vapor#sponsor)]
 
-This is a list of the properties available on the request object.
-
-```swift
-let method: Method
-var parameters: [String: String] //URL parameters like id in user/:id
-var data: [String: String] //GET or POST data
-var cookies: [String: String]
-var session: Session
-```
-
-### Session
-
-Sessions will be kept track of using the `vapor-session` cookie. The default (and currently only) session driver is `.Memory`.
-
-```swift
-if let name = request.session.data["name"] {
-	//name was in session	
-}
-
-//store name in session
-request.session.data["name"] = "Vapor"
-```
-
-## Database
-
-Vapor was designed alongside [Fluent](https://github.com/tannernelson/fluent), an Eloquent inspired ORM that empowers simple and expressive database management. 
-
-```swift
-import Fluent
-
-if let user = User.find(5) {
-    print("Found \(user.name)")
-
-    user.name = "New Name"
-    user.save()
-}
-```
-
-Underlying [Fluent](https://github.com/tannernelson/fluent) is a powerful Query builder.
-
-```swift
-let user = Query<User>().filter("id", notIn: [1, 2, 3]).filter("age", .GreaterThan, 21).first
-```
-
-## Controllers
-
-Controllers are great for keeping your code organized. `Route` directives can take whole controllers or controller methods as arguments instead of closures.
-
-`main.swift`
-```swift
-Route.get("heartbeat", closure: HeartbeatController().index)
-```
-
-To pass a function name as a closure like above, the closure must have the function signature 
-
-```swift
-func index(request: Request) -> AnyObject
-```
-
-Here is an example of a controller for returning an API heartbeat.
-
-`HearbeatController.swift`
-```swift
-import Vapor
-
-class HeartbeatController: Controller {
-
-	override func index(request: Request) -> AnyObject {
-		return ["lub": "dub"]
-	}
-
-}
-```
-
-Here the `HeartbeatControllers`'s index method will be called when `http://example.com/heartbeat/alternate` is visited.
-
-### Resource Controllers
-
-Resource controllers take advantage of CRUD-like `index`, `show`, `store`, `update`, `destroy` methods to make setting up REST APIs easy.
-
-```swift
-Route.resource("user", controller: UserController()) 
-```
-
-This will create the appropriate `GET`, `POST`, `DELETE`, etc methods for individual and groups of users. 
-
-## Bootstrap
-
-Create a subclass of `Bootstrap` to hook into server requests and responses. Set the `server.boostrap` property to your subclass.
-
-```swift
-class MyBootstrap: Bootstrap {
-	override func request(request: Request) {
-		super.request(request)
-
-		print("Incoming request from \(request.address)")
-	}
-
-	override func respond(request: Request, response: Response) {
-		super.respond(request, response: response)
-
-		print("Responding to request")
-	}
-}
-
-server.bootstrap = MyBootstrap()
-```
-
-## Async
-
-Use the `AsyncResponse` to send custom, asynchronous responses. You have full control over the response here, meaning you are responsible for writing all required headers and releasing the `Socket` when done. (Thanks @elliottminns)
-
-```swift
-Route.get("async") { request in 
-	return AsyncResponse() { socket in
-		try socket.writeUTF8("HTTP/1.1 200 OK\r\n")
-		try socket.writeUTF8("Content-Type: application/json\r\n\r\n")
-		try socket.writeUTF8("{\"hello\": \"world\"}")
-
-		socket.release()
-	}
-}
-```
-
-## Deploying
-
-Vapor has been successfully tested on Ubuntu 14.04 LTS (DigitalOcean) and Ubuntu 15.10 (VirtualBox). 
-
-### DigitalOcean
-
-To deploy to DigitalOcean, simply 
-
-- Install Swift 2.2
-	- `wget` the .tar.gz from Apple
-	- Set the `export PATH` in your `~/.bashrc`
-	- (you may need to install `binutils` as well if you see `ar not found`)
-- Clone your fork of the `vapor-example` repository to the server
-- `cd` into the repository
-	- Run `swift build`
-	- Run `.build/debug/MyApp`
-	- (you may need to run as `sudo` to use certain ports)
-	- (you may need to install `ufw` to set appropriate ports)
-
-
-### Heroku
-
-To deploy on Heroku, one can use [Kyle Fuller's Heroku buildpack](https://github.com/kylef/heroku-buildpack-swift) which works out of the box with the `vapor-example`.
-
-My website `http://tanner.xyz` is currently running using Vapor.
-
-## Attributions
-
-This project is based on [Swifter](https://github.com/glock45/swifter) by Damian Kołakowski. It uses compatibilty code from [NSLinux](https://github.com/johnno1962/NSLinux) by johnno1962.
-
-Go checkout and star their repos.
+<a href="https://opencollective.com/vapor/sponsor/0/website" target="_blank"><img src="https://opencollective.com/vapor/sponsor/0/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/sponsor/1/website" target="_blank"><img src="https://opencollective.com/vapor/sponsor/1/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/sponsor/2/website" target="_blank"><img src="https://opencollective.com/vapor/sponsor/2/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/sponsor/3/website" target="_blank"><img src="https://opencollective.com/vapor/sponsor/3/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/sponsor/4/website" target="_blank"><img src="https://opencollective.com/vapor/sponsor/4/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/sponsor/5/website" target="_blank"><img src="https://opencollective.com/vapor/sponsor/5/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/sponsor/6/website" target="_blank"><img src="https://opencollective.com/vapor/sponsor/6/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/sponsor/7/website" target="_blank"><img src="https://opencollective.com/vapor/sponsor/7/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/sponsor/8/website" target="_blank"><img src="https://opencollective.com/vapor/sponsor/8/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/sponsor/9/website" target="_blank"><img src="https://opencollective.com/vapor/sponsor/9/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/sponsor/10/website" target="_blank"><img src="https://opencollective.com/vapor/sponsor/10/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/sponsor/11/website" target="_blank"><img src="https://opencollective.com/vapor/sponsor/11/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/sponsor/12/website" target="_blank"><img src="https://opencollective.com/vapor/sponsor/12/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/sponsor/13/website" target="_blank"><img src="https://opencollective.com/vapor/sponsor/13/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/sponsor/14/website" target="_blank"><img src="https://opencollective.com/vapor/sponsor/14/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/sponsor/15/website" target="_blank"><img src="https://opencollective.com/vapor/sponsor/15/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/sponsor/16/website" target="_blank"><img src="https://opencollective.com/vapor/sponsor/16/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/sponsor/17/website" target="_blank"><img src="https://opencollective.com/vapor/sponsor/17/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/sponsor/18/website" target="_blank"><img src="https://opencollective.com/vapor/sponsor/18/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/sponsor/19/website" target="_blank"><img src="https://opencollective.com/vapor/sponsor/19/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/sponsor/20/website" target="_blank"><img src="https://opencollective.com/vapor/sponsor/20/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/sponsor/21/website" target="_blank"><img src="https://opencollective.com/vapor/sponsor/21/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/sponsor/22/website" target="_blank"><img src="https://opencollective.com/vapor/sponsor/22/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/sponsor/23/website" target="_blank"><img src="https://opencollective.com/vapor/sponsor/23/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/sponsor/24/website" target="_blank"><img src="https://opencollective.com/vapor/sponsor/24/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/sponsor/25/website" target="_blank"><img src="https://opencollective.com/vapor/sponsor/25/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/sponsor/26/website" target="_blank"><img src="https://opencollective.com/vapor/sponsor/26/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/sponsor/27/website" target="_blank"><img src="https://opencollective.com/vapor/sponsor/27/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/sponsor/28/website" target="_blank"><img src="https://opencollective.com/vapor/sponsor/28/avatar.svg"></a>
+<a href="https://opencollective.com/vapor/sponsor/29/website" target="_blank"><img src="https://opencollective.com/vapor/sponsor/29/avatar.svg"></a>
+
+
+## 👥 Authors
+
+Made by [Tanner Nelson](https://twitter.com/tanner0101), [Logan Wright](https://twitter.com/logmaestro), and the hundreds of members of the Qutheory community.
